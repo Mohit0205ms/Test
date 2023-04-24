@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="responsive.css">
+	<script src="https://kit.fontawesome.com/24843a6e11.js" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		::-webkit-scrollbar{
+			display: none;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+		body{
+			font-family:montserrat;
+			background-color: black;
+		}
+		nav{
+			background-color:lightskyblue;
+			height: 80px;
+			width: 100%;
+		}
+		label{
+			color: white;
+			font-size: 35px;
+			line-height: 0px;
+			padding: 0 0px;
+			font-weight: bold;
+		}
+		nav{
+			padding-left:30px;
+		}
+		.logo{
+			border-radius:10px;
+		}
+		nav div{
+			float: right;
+		}
+		.search{
+			margin-top:20px;
+		}
+		nav div input{
+			border-radius:8px;
+		}
+		#text{
+			height: 0;
+			width: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			transition: all 0s;
+			text-align: center;
+		}
+		#text:target{
+			height: 25%;
+			width: 15%;
+			top: 8.5%;
+			left: 85%;
+			background-color:orange;
+			position: absolute;
+		}
+		#header{
+			width:100%;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin: 0 0;
+			display: flex;
+			justify-content: space-around;
+		}
+		#hindi img{
+			width:700px;
+			height: 500px;
+		}
+		#released{
+			width:300px;
+			height:500px;
+			overflow-y:scroll;
+			overflow-x:hidden;
+			border:5px solid skyblue;
+		}
+		#released div{
+			width:300px;
+			height:110px;
+			padding:0 0 0 0;
+		}
+		#released div img{
+			width:90px;
+			height: 90px;
+		}
+		#tittle{
+			font-family:monospace;
+			font-size:25px;
+			color:whitesmoke;
+			display: flex;
+			justify-content: center;
+			position:static;
+		}
+		#lower{
+			width:100%;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin: 0 0;
+			display: flex;
+			justify-content: space-around;
+		}
+		#song{
+			display:inline-flex;
+			color: whitesmoke;
+		}
+		#hindi-tittle{
+			margin-left:10px;
+			font-size:20px;
+			font-family: cursive;
+		}
+		#song-list{
+			width:900px;
+			height:600px;
+			position: relative;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			border:5px solid skyblue;
+		}
+		#song-list div{
+			width:100%;
+			height:120px;
+			display: inline-flex;
+			color: whitesmoke;
+			background-color: #101845;
+		}
+		#song-list div img{
+			width:120px;
+			height:120px;
+			border-radius:50%;
+		}
+		#song-list div p{
+			margin-top:20px;
+		}
+		#recent{
+			width:400px;
+			height:600px;
+			position: relative;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			border:5px solid skyblue;
+		}
+		#recent div{
+			width:100%;
+			height:120px;
+			display: inline-flex;
+			color: whitesmoke;
+			background-color: #101845;
+		}
+		#recent div img{
+			width:120px;
+			height:120px;
+			border-radius:50%;
+		}
+		#recent div p{
+			margin-top:20px;
+		}
+		#recent-tittle{
+			font-family: cursive;
+			font-size:20px;
+			display: flex;
+			justify-content: center;
+			color:whitesmoke;
+			margin-left:8px;
+		}
+		#bottom{
+			position: sticky;
+			height: 130px;
+			background-color:skyblue;
+			color:black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#icons{
+			margin-top:14px;
+		}
+		#icons i{
+			cursor: pointer;
+		}
+		#myprogressbar{
+			width: 80vw;
+		}
+		@media screen and (max-width: 900px){
+			#header img{
+				width: 600px;
+				height:500px;
+			}
+			#released{
+				width:200px;
+				height:500px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#released div{
+				width:190px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#released div img{
+				width:70px;
+				height:70px;
+			}
+			#tittle{
+				font-family:monospace;
+				font-size:20px;
+				color:whitesmoke;
+				display: flex;
+				justify-content: center;
+				margin-right:7px;
+			}
+			#song-list{
+				width:600px;
+				height:500px;
+				position: relative;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				border:5px solid skyblue;
+			}
+			#song-list div{
+				width:100%;
+				height:100px;
+				display: inline-flex;
+				color: whitesmoke;
+				background-color: #101845;
+			}
+			#song-list div img{
+				width:120px;
+				height:100px;
+				border-radius:50%;
+			}
+			#song-list div p{
+				margin-top:20px;
+			}
+			#recent{
+				width:200px;
+				height:500px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#recent div{
+				width:190px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#recent div img{
+				width:70px;
+				height:70px;
+			}
+			#recent div p{
+				margin-top:20px;
+			}
+		}
+		@media screen and (max-width: 600px){
+			#header img{
+				width:300px;
+				height:300px;
+			}
+			#released{
+				width:160px;
+				height:300px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#released div{
+				width:150px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#released div img{
+				width:70px;
+				height:70px;
+			}
+			#tittle{
+				font-family:monospace;
+				font-size:20px;
+				color:whitesmoke;
+				display: flex;
+				justify-content: center;
+				margin-right:7px;
+			}
+			#song-list{
+				width:300px;
+				height:300px;
+				position: relative;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				border:5px solid skyblue;
+			}
+			#song-list div{
+				width:100%;
+				height:100px;
+				display: inline-flex;
+				color: whitesmoke;
+				background-color: #101845;
+			}
+			#song-list div img{
+				width:120px;
+				height:100px;
+				border-radius:50%;
+			}
+			#song-list div p{
+				margin-top:20px;
+			}
+			#recent{
+				width:200px;
+				height:300px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+		}
+	</style>
+<body>
+	<nav class="navigation">
+			<img class="logo" src="https://img.etimg.com/thumb/msid-81525531,width-650,imgsize-622277,,resizemode-4,quality-100/music_thinkstockphotos.jpg" width="80px" height="80px">
+			<label>Music.DJ</label>
+			<div class="search">
+			<input type="search" name="search" placeholder="Search">
+			<button><i class="fas fa-search"></i></button>
+			<div>
+			<a href="#text"><img src="https://www.wallpapertip.com/wmimgs/30-308464_cool-profile-pictures-1080p.jpg" width="40px" height="40px"></a>
+			</div>
+			<div id="text">
+				<a href="#">X</a>
+				<img style="border-radius:10px;" src="https://1.bp.blogspot.com/-0ZUMPsBahSo/X0vuBttwtWI/AAAAAAAAdwM/_0Nuxi-PWUsgTsLdAmGZqILPiJf7N2bdACLcBGAsYHQ/s1600/best%2Bdp%2Bfor%2Bwhatsapp%2B%25281%2529.jpg" width="60px" height="60px"><br/>
+				<p><h1>Mohit Singh</h1></p>
+				<p>Contact No: XXXXXXXX</p>
+				<p>Email ID:abc@gmail.com</p>
+			</div>
+			</div>
+	</nav>
+	<div id="header">
+		<a href="#bottom"><div id="hindi">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+		</div></a>
+		<div id="released">
+			<p id="tittle">New released</p>
+			<a href="#bottom"><div id="song">
+				<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+				<p id="hindi-tittle">Kala cshma</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://i.scdn.co/image/ab67616d0000b273253d601686fce90808de969d">
+				<p id="hindi-tittle">Mere rashke Qamar</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://lyricsworldyou.com/wp-content/uploads/2021/08/KHUSHI-JAB-BHI-TERI-LYRICS-Jubin-Nautiyal-1.jpg">
+				<p id="hindi-tittle">Khushi jab bhi teri</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://static.toiimg.com/photo/msid-88584006/88584006.jpg">
+				<p id="hindi-tittle">mere sanam</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://www.unlimitedmusik.com/wp-content/uploads/2021/12/Dance-Meri-Rani-Nora-Fatehi-800x450.jpg">
+				<p id="hindi-tittle">Dance Meri Rani</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://i.ytimg.com/vi/wWH2KR09gsY/maxresdefault.jpg">
+				<p id="hindi-tittle">Zindagi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://static.toiimg.com/photo/msid-79626956/79626956.jpg">
+				<p id="hindi-tittle">jannat</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://cdn.dnaindia.com/sites/default/files/styles/half/public/2020/07/16/913750-b-praak-dil-tod-ke.jpg">
+				<p id="hindi-tittle">Dil tod kar</p>
+			</div></a>
+		</div>
+	</div>
+	<div id="lower">
+		<div id="song-list">
+			<a href="#bottom"><div>
+				<img src="https://www.thepollywood.com/wp-content/uploads/2021/02/Mazaa.jpg">
+				<p>Maza</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://static.toiimg.com/photo/msid-79626956/79626956.jpg">
+				<p>jannat</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://i.ytimg.com/vi/bhVH0C-6f8Q/maxresdefault.jpg">
+				<p>Bakhayali</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://1.bp.blogspot.com/-gacagFFXrIo/XvdhqnbR3CI/AAAAAAAAIOk/tGa953fp02Ehg6avOyk4Obq2X2NxrVtyACK4BGAsYHg/d/Kaise-Bataye-Kyun-Tujhko-Chahe-Lyrics.jpg">
+				<p>Tu jane na</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://i.ytimg.com/vi/1--qqQrimMA/maxresdefault.jpg">
+				<p>Dil galti kr batha</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://i.ytimg.com/vi/mZXn0RTb0TM/mqdefault.jpg">
+				<p>Lut gaye</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://www.pinkvilla.com/files/styles/amp_metadata_content_image_min_696px_wide/public/akshay_kumar_and_nupur_sanon_announce_filhaal_2_teaser_release_date.jpg?itok=fK0OH_Fr">
+				<p>Filhaal</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://a10.gaanacdn.com/images/albums/98/4188998/crop_480x480_1622784272_4188998.jpg">
+				<p>Pani pani</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://static.toiimg.com/thumb/imgsize-123456,msid-89040528,width-600,resizemode-4/89040528.jpg">
+				<p>ma chla</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://i1.sndcdn.com/artworks-otSTZuv8erOadxcJ-qRyN4Q-t500x500.jpg">
+				<p>bhulna jarori tha</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://1.bp.blogspot.com/-35F3be0o3DQ/XiqIWlCwMEI/AAAAAAAAANE/Cy4GppYA9W0VYVjYfTufXcLv_MSHEcANQCLcBGAsYHQ/s1600/Diamond%2BRing%2BLyrics.jpg">
+				<p>Diamond ring</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://mrmv.in/thumbs/y/AUEJGH1MZ0W0p1b/top-hits-songs-new-hindi-song-2021-tumse-pyaar-hai-vishal-mishra-new-hindi-song-2021.jpg">
+				<p>Tum sa pyaar hai</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://wp-seo-mainpage.s3-accelerate.amazonaws.com/how-to/hindi-songs-3-e1510679836850.jpg">
+				<p>Suit Suit</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://i.ytimg.com/vi/vMQjGysZeMc/maxresdefault.jpg">
+				<p>Half boyfriend</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://1.bp.blogspot.com/-euJxW4fFOtA/Xjrn3TUSAMI/AAAAAAAAAJg/CdlPFJ9fyrYV4mBx2RhmBsdqL-1_CMzzQCLcBGAsYHQ/s1600/ek%2Bthukda%2Bdhoop%2Bblog.jpg">
+				<p>Ek tukda thoop</p>
+			</div></a>
+		</div>
+		<div id="recent">
+			<p id="recent-tittle">Recent Played</p>
+			<a href="#bottom"><div>
+				<img src="https://1.bp.blogspot.com/-gacagFFXrIo/XvdhqnbR3CI/AAAAAAAAIOk/tGa953fp02Ehg6avOyk4Obq2X2NxrVtyACK4BGAsYHg/d/Kaise-Bataye-Kyun-Tujhko-Chahe-Lyrics.jpg">
+				<p>Tu jane na</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://i.ytimg.com/vi/vMQjGysZeMc/maxresdefault.jpg">
+				<p>Half boyfriend</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://static.toiimg.com/thumb/imgsize-123456,msid-89040528,width-600,resizemode-4/89040528.jpg">
+				<p>ma chla</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://1.bp.blogspot.com/-35F3be0o3DQ/XiqIWlCwMEI/AAAAAAAAANE/Cy4GppYA9W0VYVjYfTufXcLv_MSHEcANQCLcBGAsYHQ/s1600/Diamond%2BRing%2BLyrics.jpg">
+				<p>Diamond ring</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://i.ytimg.com/vi/wWH2KR09gsY/maxresdefault.jpg">
+				<p id="hindi-tittle">Zindagi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://a10.gaanacdn.com/images/albums/98/4188998/crop_480x480_1622784272_4188998.jpg">
+				<p>Pani pani</p>
+			</div></a>
+		</div>
+	</div>
+	<div id="bottom">
+			<input type="range" name="range" id="myprogressbar" min="0" max="100">
+			<div id="icons">
+				<i class="fas fa-3x fa-fast-backward"></i>
+				<i class="far fa-3x fa-play-circle"></i>
+				<i class="fas fa-3x fa-fast-forward"></i>
+			</div>
+		</div>
+</body>
+</html>

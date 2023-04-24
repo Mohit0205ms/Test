@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="responsive.css">
+	<script src="https://kit.fontawesome.com/24843a6e11.js" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		::-webkit-scrollbar{
+			display: none;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+		body{
+			font-family:montserrat;
+			background-color: black;
+		}
+		nav{
+			background-color:lightskyblue;
+			height: 80px;
+			width: 100%;
+		}
+		label{
+			color: white;
+			font-size: 35px;
+			line-height: 0px;
+			padding: 0 0px;
+			font-weight: bold;
+		}
+		nav{
+			padding-left:30px;
+		}
+		.logo{
+			border-radius:10px;
+		}
+		nav div{
+			float: right;
+		}
+		.search{
+			margin-top:20px;
+		}
+		nav div input{
+			border-radius:8px;
+		}
+		#text{
+			height: 0;
+			width: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			transition: all 0s;
+			text-align: center;
+		}
+		#text:target{
+			height: 25%;
+			width: 15%;
+			top: 8.5%;
+			left: 85%;
+			background-color:orange;
+			position: absolute;
+		}
+		#header{
+			width:100%;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin: 0 0;
+			display: flex;
+			justify-content: space-around;
+		}
+		#hindi img{
+			width:700px;
+			height: 500px;
+		}
+		#released{
+			width:300px;
+			height:500px;
+			overflow-y:scroll;
+			overflow-x:hidden;
+			border:5px solid skyblue;
+		}
+		#released div{
+			width:300px;
+			height:110px;
+			padding:0 0 0 0;
+		}
+		#released div img{
+			width:90px;
+			height: 90px;
+		}
+		#tittle{
+			font-family:monospace;
+			font-size:25px;
+			color:whitesmoke;
+			display: flex;
+			justify-content: center;
+			position:static;
+		}
+		#lower{
+			width:100%;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin: 0 0;
+			display: flex;
+			justify-content: space-around;
+		}
+		#song{
+			display:inline-flex;
+			color: whitesmoke;
+		}
+		#hindi-tittle{
+			margin-left:10px;
+			font-size:20px;
+			font-family: cursive;
+		}
+		#song-list{
+			width:900px;
+			height:600px;
+			position: relative;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			border:5px solid skyblue;
+		}
+		#song-list div{
+			width:100%;
+			height:120px;
+			display: inline-flex;
+			color: whitesmoke;
+			background-color: #101845;
+		}
+		#song-list div img{
+			width:120px;
+			height:120px;
+			border-radius:50%;
+		}
+		#song-list div p{
+			margin-top:20px;
+		}
+		#recent{
+			width:400px;
+			height:600px;
+			position: relative;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			border:5px solid skyblue;
+		}
+		#recent div{
+			width:100%;
+			height:120px;
+			display: inline-flex;
+			color: whitesmoke;
+			background-color: #101845;
+		}
+		#recent div img{
+			width:120px;
+			height:120px;
+			border-radius:50%;
+		}
+		#recent div p{
+			margin-top:20px;
+		}
+		#recent-tittle{
+			font-family: cursive;
+			font-size:20px;
+			display: flex;
+			justify-content: center;
+			color:whitesmoke;
+			margin-left:8px;
+		}
+		#bottom{
+			position: sticky;
+			height: 130px;
+			background-color:skyblue;
+			color:black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#icons{
+			margin-top:14px;
+		}
+		#icons i{
+			cursor: pointer;
+		}
+		#myprogressbar{
+			width: 80vw;
+		}
+		@media screen and (max-width: 900px){
+			#header img{
+				width: 600px;
+				height:500px;
+			}
+			#released{
+				width:200px;
+				height:500px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#released div{
+				width:190px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#released div img{
+				width:70px;
+				height:70px;
+			}
+			#tittle{
+				font-family:monospace;
+				font-size:20px;
+				color:whitesmoke;
+				display: flex;
+				justify-content: center;
+				margin-right:7px;
+			}
+			#song-list{
+				width:600px;
+				height:500px;
+				position: relative;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				border:5px solid skyblue;
+			}
+			#song-list div{
+				width:100%;
+				height:100px;
+				display: inline-flex;
+				color: whitesmoke;
+				background-color: #101845;
+			}
+			#song-list div img{
+				width:120px;
+				height:100px;
+				border-radius:50%;
+			}
+			#song-list div p{
+				margin-top:20px;
+			}
+			#recent{
+				width:200px;
+				height:500px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#recent div{
+				width:190px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#recent div img{
+				width:70px;
+				height:70px;
+			}
+			#recent div p{
+				margin-top:20px;
+			}
+		}
+		@media screen and (max-width: 600px){
+			#header img{
+				width:300px;
+				height:300px;
+			}
+			#released{
+				width:160px;
+				height:300px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#released div{
+				width:150px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#released div img{
+				width:70px;
+				height:70px;
+			}
+			#tittle{
+				font-family:monospace;
+				font-size:20px;
+				color:whitesmoke;
+				display: flex;
+				justify-content: center;
+				margin-right:7px;
+			}
+			#song-list{
+				width:300px;
+				height:300px;
+				position: relative;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				border:5px solid skyblue;
+			}
+			#song-list div{
+				width:100%;
+				height:100px;
+				display: inline-flex;
+				color: whitesmoke;
+				background-color: #101845;
+			}
+			#song-list div img{
+				width:120px;
+				height:100px;
+				border-radius:50%;
+			}
+			#song-list div p{
+				margin-top:20px;
+			}
+			#recent{
+				width:200px;
+				height:300px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+		}
+	</style>
+<body>
+	<nav class="navigation">
+			<img class="logo" src="https://img.etimg.com/thumb/msid-81525531,width-650,imgsize-622277,,resizemode-4,quality-100/music_thinkstockphotos.jpg" width="80px" height="80px">
+			<label>Music.DJ</label>
+			<div class="search">
+			<input type="search" name="search" placeholder="Search">
+			<button><i class="fas fa-search"></i></button>
+			<div>
+			<a href="#text"><img src="https://www.wallpapertip.com/wmimgs/30-308464_cool-profile-pictures-1080p.jpg" width="40px" height="40px"></a>
+			</div>
+			<div id="text">
+				<a href="#">X</a>
+				<img style="border-radius:10px;" src="https://1.bp.blogspot.com/-0ZUMPsBahSo/X0vuBttwtWI/AAAAAAAAdwM/_0Nuxi-PWUsgTsLdAmGZqILPiJf7N2bdACLcBGAsYHQ/s1600/best%2Bdp%2Bfor%2Bwhatsapp%2B%25281%2529.jpg" width="60px" height="60px"><br/>
+				<p><h1>Mohit Singh</h1></p>
+				<p>Contact No: XXXXXXXX</p>
+				<p>Email ID:abc@gmail.com</p>
+			</div>
+			</div>
+	</nav>
+	<div id="header">
+		<a href="#bottom"><div id="hindi">
+			<img src="https://image.shutterstock.com/image-vector/quote-song-russian-singer-nevernever-600w-1933783481.jpg">
+		</div></a>
+		<div id="released">
+			<p id="tittle">New released</p>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuHTY55HT2UYI_hyyGEUVLkDU11GCsL5Cdv1i5L4JEOIMIyLVKzPomICmh93fyatbanhc&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLF5FJjtdnlLQF7NwQZ3tJEocRthoMI7Ow_nP1hFviibhR6G6cyfCHzGs6eXXmMj0m5h8&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDL7R6t4iogdW8L6OqS2pdDjn5pLn2VpqkJj2Q2bJhZ2blCJuVRFs7UmjsPLZbKk6Y7w&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToAm9YSsd1tqyUd1DsfpzD8otH6dVMfKUEXmosEKkpgyNNETJPjldWKHlr1IVMzACSgjA&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTviaO1162_wnOkIJRymg8zceRXfMhArga8Ec5Un8w6lS-SL58AnwO_reMgWL0NpPIGE94&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuW51j5aMISbZyDL_rmvoj06qKQGSQzIfpsbqT-m-hIORn9xKlmYKEjXrsYdUhoHIPgUI&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT8pZS9ZzPKDF36AjrfbwypMi192bXup0Y1s8AGKAAgTICNiUsJo3vLA8gnTHsSTH0h9k&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_sRueHMd7MxKJw3Yk0PdHvWzV8LVCEUJXYtbPVWBmDTY4eHWxIqeX4GgGNbzDsRQX9KQ&usqp=CAU">
+				<p id="hindi-tittle">Quinm</p>
+			</div></a>
+		</div>
+	</div>
+	<div id="lower">
+		<div id="song-list">
+			<a href="#bottom"><div>
+				<img src="https://i1.sndcdn.com/artworks-000432384174-lpzm93-t500x500.jpg">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUXabG5EBuJNx9RLxc-E8-cfY8WuZbQ2YBfA&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://a10.gaanacdn.com/gn_img/albums/w4MKPObojg/4MKPm2lA3o/size_m.webp">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs0ST9PG9sMPDLKPHw8hEWi-gOAWFsHvHSp2mK6gw4L-MGltVNmOVPjMRRhl84-Ybp21M&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHJwwH64j5ZGAVRtPTu0DADvLZfyX6Te7xh1quyODtFA70j_lJvEh0ghNCP1pA-M7SFos&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2pcBkeYT239cueagSjuog8J_donKJssm8qhbqkOxi-_6Isv8Ul7ajfkxphTuxTEvnt8E&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiEx86LPorgPAkSOrgW3Wz6Zmt2yBoQ9Wt_td9drOtAsyUjW0B009FdO_byxEMJndjFbU&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOhv6gPxBCTAnUV39ie7byxXYEnQv1GBLTY6afxI_AqBKBIhBvRXtBAVKid88z4t3Tyj8&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQIaXgZ9qilzIXOzf4wEdtcFhriUHdS_uCMC2RrQb3UHyKbmbNXVPue9XsXJuyGpcVizA&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDuqmttZwcNqd-9A5EIF9pRdUePj2pFCNJtY9PhaBdffehbDSrqZS9V0a7oKbzs3pegb8&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1j5LaGsyobE1_JKdppWQpQNfhl4u9Ws7EhFD5TIqXRKFoATAm2cc9ZpLcGOwEJs8Gvxg&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFgeoLZlY1Pd_2iB7YvO7M3exRq2zhopZMXMyX79Gz-7PYSo66nkAnaMuE8QCTkkaXVa8&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0jHU3MRDSKw4S7m2hyTGPNkutc6E54_jSgGLJLfmoyRMVu1_gh4Rz3HCzI8UAeQBA4dE&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkINh9NaMzCgKyTabsykMVklGUAZPJ9z92S5Z_O9-LHwJ1qbH0Lf_UhqtZ9JhgndpeL9U&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPKYsNwnOm5_aX3_H3Drdn-A6hjzg6b_DMfg&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+		</div>
+		<div id="recent">
+			<p id="recent-tittle">Recent Played</p>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm4IJWZenBpZZLGGD0jJaL-OP3QqH0ZBvigG8ohXrckQE8K9vX9bpqh_7f0Q9AwVUWzx8&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUaDs54Bk24TpBd3Nb11yr7YFo_B1oMLN4Lg&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewJbbS6ZIR-BJKhNv0wGFxYw-KP40wV7DCQ&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmU_w-Ot4rH16AiqlUa0ytddj8oZ8Pya7Dg&usqp=CAU">
+				<p>Qunim</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG3e3s0VK_G4P2dskkrLBBlNN54Kmqk_7wWQ&usqp=CAU">
+				<p id="hindi-tittle">Qunim</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://a10.gaanacdn.com/images/albums/98/4188998/crop_480x480_1622784272_4188998.jpg">
+				<p>Qunim</p>
+			</div></a>
+		</div>
+	</div>
+	<div id="bottom">
+			<input type="range" name="range" id="myprogressbar" min="0" max="100">
+			<div id="icons">
+				<i class="fas fa-3x fa-fast-backward"></i>
+				<i class="far fa-3x fa-play-circle"></i>
+				<i class="fas fa-3x fa-fast-forward"></i>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://kit.fontawesome.com/24843a6e11.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Music PLayer</title>
+	<style type="text/css">
+		::-webkit-scrollbar{
+			display: none;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+		body{
+			font-family:montserrat;
+			background-color: black;
+		}
+		nav{
+			background-color:lightskyblue;
+			height: 80px;
+			width: 100%;
+		}
+		label{
+			color: white;
+			font-size: 35px;
+			line-height: 0px;
+			padding: 0 0px;
+			font-weight: bold;
+		}
+		nav{
+			padding-left:30px;
+		}
+		.logo{
+			border-radius:10px;
+		}
+		nav div{
+			float: right;
+		}
+		.search{
+			margin-top:20px;
+		}
+		nav div input{
+			border-radius:8px;
+		}
+		#text{
+			height: 0;
+			width: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			transition: all 0s;
+			text-align: center;
+		}
+		#text:target{
+			height: 25%;
+			width: 15%;
+			top: 8.5%;
+			left: 85%;
+			background-color:orange;
+			position: absolute;
+		}
+		.header{
+			width: 100%;
+			height: 506.25px;
+			margin-top: 20px;
+			padding-left:0%;
+			display:flex;
+			flex-direction: row;
+			justify-content:space-around;
+		}
+		#slider{
+			width: 900px;
+			overflow: hidden;
+		}
+		#slider figure{
+			position: relative;
+			width: 500%;
+			margin: 0;
+			left: 0;
+			animation: 10s slider infinite;
+		}
+
+		#slider figure img{
+			width:900px;
+			float: left;
+			}
+		@keyframes slider{
+			0%{
+				left: 0;
+			}
+			20%{
+				left: 0;
+			}
+			25%{
+				left: -100%;
+			}
+			45%{
+				left: -100%;
+			}
+			50%{
+				left: -200%;
+			}
+			70%{
+				left: -200%;
+			}
+			75%{
+				left: -300%;
+			}
+			95%{
+				left: -300%;
+			}
+			100%{
+				left:-400%;
+			}
+		}
+		#playlist{
+			width:300px;
+			height:1000px;
+			border:3px solid skyblue;
+			justify-content:center;
+			overflow-y: scroll;
+		}
+		#main{
+			color:whitesmoke;
+			float: right;
+			font-size:20px;
+			font-family: sans-serif;
+			margin-top:20px;
+			margin-right:60px;
+		}
+		#list-name{
+			font-size: 15px;
+		}
+		.container{
+			width:800px;
+			height:650px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			position: relative;
+			margin-top:2%;
+			margin-left:5%;
+		}
+		.container div{
+			width:350px;
+			height:250px;
+			position: relative;
+		}
+		.container div img{
+			width:100%;
+			height: 100%;
+			cursor: pointer;
+			border-radius:55%;
+		}
+		.container div:hover{
+			transition:0.8s all ease-in;
+			transform: scale(1.1);
+		}
+		/*#div1:hover{
+			transition:0.8s all ease-in;
+			transform: scale(1.1);
+		}
+		#div2:hover{
+			transition:0.8s all ease-in;
+			transform: scale(1.1);
+		}
+		#div3:hover{
+			transition:0.8s all ease-in;
+			transform: scale(1.1);
+		}
+		#div4:hover{
+			transition:0.8s all ease-in;
+			transform: scale(1.1);
+		}*/
+		.artist{
+			background-color:black;
+		    padding: 15px;
+		    width: 100%;
+		    overflow-x: auto;
+		    overflow-y: hidden;
+		    white-space: nowrap;
+		    border:5px solid skyblue;
+		}
+		.artist div{ /* Added .. */
+		    background-color:black;
+		    margin-top:2%;
+		    font-size: 10px;
+		    padding: 0px 5px 0px 5px;
+		    width:100%;
+		    height:400px;
+		    overflow:hidden;
+		}
+		#tit{
+			width:auto;
+			height: auto;
+			margin-top:-9px;
+			margin-bottom:-35px;
+		}
+		#artist-pic{
+		    height:150px;
+		    width:130px;
+		    overflow: none;
+		    margin-top:50px;
+		    display: inline-block;
+		}
+		#artist-pic img{
+			width:100px;
+			height:100px;
+		}
+		#artist-name{
+			font-size:20px;
+			font-family: cursive;
+		}
+		#artist-pic img:hover{
+			transition:1s all ease-in-out;
+			transform: scale(1.3);
+		}
+		#hindi{
+			 margin: 4px, 4px;
+        	padding: 4px;
+        	background-color:black;
+        	width:100%;
+        	overflow-x: auto;
+        	overflow-y: hidden;
+        	white-space: nowrap;
+        	border: 3px solid skyblue;
+		}
+		#hindi img{
+			width:100px;
+			height: 100px;
+			margin:0px 20px 0px 20px;
+			border-radius:20%;
+		}
+		#english{
+			 margin: 4px, 4px;
+        	padding: 4px;
+        	background-color:black;
+        	width:100%;
+        	overflow-x: auto;
+        	overflow-y: hidden;
+        	white-space: nowrap;
+        	border: 3px solid skyblue;
+		}
+		#english img{
+			width:100px;
+			height: 100px;
+			margin:0px 20px 0px 20px;
+			border-radius:20%;
+		}
+		#punjabi{
+			 margin: 4px, 4px;
+        	padding: 4px;
+        	background-color:black;
+        	width:100%;
+        	overflow-x: auto;
+        	overflow-y: hidden;
+        	white-space: nowrap;
+        	border: 3px solid skyblue;
+		}
+		#punjabi img{
+			width:100px;
+			height: 100px;
+			margin:0px 20px 0px 20px;
+			border-radius:20%;
+		}
+		.bottom{
+			position: sticky;
+			height: 130px;
+			background-color:skyblue;
+			color:black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#icons{
+			margin-top:14px;
+		}
+		#icons i{
+			cursor: pointer;
+		}
+		#myprogressbar{
+			width: 80vw;
+		}
+		@media screen and (max-width:900px){
+			#slider{
+				width:500px;
+				height:500px;
+				overflow:hidden;
+			}
+			#slider figure{
+				position: relative;
+				width: 500%;
+				margin: 0;
+				left: 0;
+				animation: 10s slider infinite;
+			}
+			#slider figure img{
+				width:500px;
+				float: left;
+			}
+			#playlist{
+				width:200px;
+				height:700px;
+				border:3px solid skyblue;
+				justify-content:center;
+				overflow-y: scroll;
+			}
+			#main{
+				color:whitesmoke;
+				float: right;
+				font-size:20px;
+				font-family: sans-serif;
+				margin-top:10px;
+				margin-right:5px;
+			}
+			#list-name{
+				font-size:20px;
+			}
+
+			.container{
+				width:500px;
+				height:500px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				position: relative;
+				margin-top:-20%;
+				margin-left:5%;
+			}
+			.container div{
+				width:200px;
+				height:200px;
+				position: relative;
+			}
+			.container div img{
+				width:100%;
+				height: 100%;
+				cursor: pointer;
+				border-radius:55%;
+			}
+			.container div:hover{
+				transition:0.8s all ease-in;
+				transform: scale(1.1);
+			}
+		}
+		@media screen and (max-width:600px){
+			#slider{
+				width:300px;
+				height:300px;
+				overflow:hidden;
+			}
+			#slider figure{
+				position: relative;
+				width: 500%;
+				margin: 0;
+				left: 0;
+				animation: 10s slider infinite;
+			}
+			#slider figure img{
+				width:300px;
+				float: left;
+			}
+			#playlist{
+				width:200px;
+				height:500px;
+				border:3px solid skyblue;
+				justify-content:center;
+				overflow-y: scroll;
+			}
+			#main{
+				color: whitesmoke;
+				float: right;
+				font-size:15px;
+				font-family: sans-serif;
+				margin-top:30px;
+				margin-right:10px;
+			}
+			#list-name{
+				font-size:20px;
+			}
+			.container{
+				width:250px;
+				height:250px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				position: relative;
+				margin-top:-55%;
+				margin-left:7%;
+			}
+			.container div{
+				width:100px;
+				height:100px;
+				position: relative;
+			}
+			.container div img{
+				width:100%;
+				height: 100%;
+				cursor: pointer;
+				border-radius:55%;
+			}
+			.container div:hover{
+				transition:0.8s all ease-in;
+				transform: scale(1.1);
+			}
+		}
+	</style>
+</head>
+<body>
+		<nav class="navigation">
+			<img class="logo" src="https://img.etimg.com/thumb/msid-81525531,width-650,imgsize-622277,,resizemode-4,quality-100/music_thinkstockphotos.jpg" width="80px" height="80px">
+			<label>Music.DJ</label>
+			<div class="search">
+			<input type="search" name="search" placeholder="Search">
+			<button><i class="fas fa-search"></i></button>
+			<div>
+			<a href="#text"><img src="https://www.wallpapertip.com/wmimgs/30-308464_cool-profile-pictures-1080p.jpg" width="40px" height="40px"></a>
+			</div>
+			<div id="text">
+				<a href="#">X</a>
+				<img style="border-radius:10px;" src="https://1.bp.blogspot.com/-0ZUMPsBahSo/X0vuBttwtWI/AAAAAAAAdwM/_0Nuxi-PWUsgTsLdAmGZqILPiJf7N2bdACLcBGAsYHQ/s1600/best%2Bdp%2Bfor%2Bwhatsapp%2B%25281%2529.jpg" width="60px" height="60px"><br/>
+				<p><h1>Mohit Singh</h1></p>
+				<p>Contact No: XXXXXXXX</p>
+				<p>Email ID:abc@gmail.com</p>
+			</div>
+			</div>
+		</nav>
+		<div class="header">
+			<div id="slider">
+					<figure>
+						<a href="page2.html"><img src="https://static.toiimg.com/photo/msid-84891165/84891165.jpg"></a>
+						<a href="page2.html"><img src="https://i.ytimg.com/vi/si2FI27xn2g/maxresdefault.jpg"></a>
+						<a href="page2.html"><img src="https://static.toiimg.com/photo/msid-81431598/81431598.jpg"></a>
+						<a href="page2.html"><img src="https://static.toiimg.com/photo/80048600.cms?imgsize=185947"></a>
+						<a href="page2.html"><img src="https://static.toiimg.com/photo/msid-84891165/84891165.jpg"></a>
+					</figure>
+			</div>
+			<div id="playlist">
+				<a href="#"><div style="background-color:black;">
+					<label id="list-name" style="margin-left:100px; color: whitesmoke;">Songs</label>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="#"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="#"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="#"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+				<a href="page2.html"><div id="song">
+					<img src="https://i.ytimg.com/vi/GLGuLXKT9Ng/maxresdefault.jpg" width="70px" height="70px">
+					<p id="main">rataan lambiya</p>
+				</div></a>
+			</div>
+		</div>
+		<div class="container">
+			<a href="Hindisongs.html"><div id="div1">
+				<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg" width="300px" height="300px">
+				<p style="color:whitesmoke;margin-top:-10px; font-size: 15px;">Hindi</p>
+			</div></a>
+			<a href="Englishsongs.html"><div id="div2">
+				<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159" width="300px" height="300px">
+				<label style="color:whitesmoke; text-align: center; font-size: 15px;">English</label>		
+			</div></a>
+			<a href="Punjabisongs.html"><div id="div3">
+				<span>
+				<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg" width="300px" height="300px">
+				<label style="color:whitesmoke; text-align: center; font-size: 15px;">Punjabi</label></span>
+			</div></a>
+			<a href="Top10.html"><div id="div4">
+				<img src="https://i.ytimg.com/vi/QcDqtbtw-zI/maxresdefault.jpg" width="300px" height="300px">
+				<p style="color:whitesmoke; font-size:15px;">Top 10</p>
+			</div></a>
+		</div>
+		<div class="artist">
+			<div id="tit">
+				<h1 style="color:whitesmoke;">Artist:-</h1>
+			</div>
+			<div id="artist-pic">
+				<img src="https://i.pinimg.com/474x/f1/76/15/f176157702a99fed11b4be92d5abb49e.jpg">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/indian-bollywood-composer-and-playback-singer-shankar-mahadevan-a-picture-id876134706?k=20&m=876134706&s=612x612&w=0&h=PyBF3WeJkoODAZ5b4g1qv3qCTlOhMG02Js6FOjMkpx0=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/arijit-singh-performs-on-stage-at-indigo2-at-o2-arena-on-august-29-picture-id454354546?k=20&m=454354546&s=612x612&w=0&h=JqLgG--adH4oArRHAXfnLfpnNHBtVO9-gf2BEnD67f4=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/indian-pop-music-and-bollywood-playback-singer-neha-bhasin-performs-picture-id964690060?k=20&m=964690060&s=612x612&w=0&h=WyFysAIh_teV_nK9sVc5qslDt-joWQzMC28q25-r3TQ=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/bollywood-singer-neha-bhasin-poses-during-an-exclusive-interview-with-picture-id1140889133?k=20&m=1140889133&s=612x612&w=0&h=GmdlpAzP0bFHs9lLUF2rIo1cF3eZDiCZsqgXxsMy4ew=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/bollywood-singer-kanika-kapoor-arrives-for-iifa-rocks-july-14-2017-at-picture-id814648476?k=20&m=814648476&s=612x612&w=0&h=Eeq2HtJcOhZiYW_tfeB7ar24TCPpvy5aUveU2mPTElk=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic" >
+				<img src="https://media.gettyimages.com/photos/bollywood-singer-neha-kakkar-poses-during-an-exclusive-interview-with-picture-id957436778?k=20&m=957436778&s=612x612&w=0&h=9kepQjs7qhCasQiKHYQgml213hyW7Ec1X8X5cuA_lqc=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://i.pinimg.com/474x/f1/76/15/f176157702a99fed11b4be92d5abb49e.jpg">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/indian-bollywood-composer-and-playback-singer-shankar-mahadevan-a-picture-id876134706?k=20&m=876134706&s=612x612&w=0&h=PyBF3WeJkoODAZ5b4g1qv3qCTlOhMG02Js6FOjMkpx0=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/arijit-singh-performs-on-stage-at-indigo2-at-o2-arena-on-august-29-picture-id454354546?k=20&m=454354546&s=612x612&w=0&h=JqLgG--adH4oArRHAXfnLfpnNHBtVO9-gf2BEnD67f4=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/indian-pop-music-and-bollywood-playback-singer-neha-bhasin-performs-picture-id964690060?k=20&m=964690060&s=612x612&w=0&h=WyFysAIh_teV_nK9sVc5qslDt-joWQzMC28q25-r3TQ=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/bollywood-singer-neha-bhasin-poses-during-an-exclusive-interview-with-picture-id1140889133?k=20&m=1140889133&s=612x612&w=0&h=GmdlpAzP0bFHs9lLUF2rIo1cF3eZDiCZsqgXxsMy4ew=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic">
+				<img src="https://media.gettyimages.com/photos/bollywood-singer-kanika-kapoor-arrives-for-iifa-rocks-july-14-2017-at-picture-id814648476?k=20&m=814648476&s=612x612&w=0&h=Eeq2HtJcOhZiYW_tfeB7ar24TCPpvy5aUveU2mPTElk=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+			<div id="artist-pic" >
+				<img src="https://media.gettyimages.com/photos/bollywood-singer-neha-kakkar-poses-during-an-exclusive-interview-with-picture-id957436778?k=20&m=957436778&s=612x612&w=0&h=9kepQjs7qhCasQiKHYQgml213hyW7Ec1X8X5cuA_lqc=">
+				<p style="color:whitesmoke;"id="artist-name">shankra datt</p>
+			</div>
+		</div>
+		<div id="hindi">
+			<h2 style="color: whitesmoke;">Hindi songs:-</h2>
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+			<img src="https://i.pinimg.com/originals/36/e7/33/36e7337dbe3eee399ce62911d7ef40d1.jpg">
+		</div>
+		<div id="english">
+			<h2 style="font-family: cursive; color: whitesmoke;">English songs:-</h2>
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+			<img src="https://i.scdn.co/image/ab67706c0000bebbfb2209d998d6f251c9122159">
+		</div>
+		<div id="punjabi">
+			<h2 style="font-family: cursive; color: whitesmoke;">punjabi songs:-</h2>
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+			<img src="https://1.bp.blogspot.com/-6OCZ7HCEOzo/XQRX65hv3AI/AAAAAAAAf14/K0z3d9WlFKkOs9pTYgKrtkfVynCYXcOnQCLcBGAs/s1600/Tommy-Raj-Ranjodh-Diljit-Dosanjh-Shadaa.jpg">
+		</div>
+		<div class="bottom">
+			<input type="range" name="range" id="myprogressbar" min="0" max="100">
+			<div id="icons">
+				<i class="fas fa-3x fa-fast-backward"></i>
+				<i class="far fa-3x fa-play-circle" id="play"></i>
+				<i class="fas fa-3x fa-fast-forward"></i>
+			</div>
+		</div>
+		<script>
+			const play=document.getElementById('play');
+			const audio=new Audio("./audio/Fark_1.mp3");
+			let bool=true;
+			play.addEventListener('click',()=>{
+				if(bool==true){
+					audio.play();
+					bool=false;
+				}
+				else{
+					audio.pause();
+					bool=true;
+				}
+			})
+		</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://kit.fontawesome.com/24843a6e11.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Music Player</title>
+	<style type="text/css">
+		::-webkit-scrollbar{
+			display: none;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+		body{
+			font-family:montserrat;
+			background-color: black;
+		}
+		nav{
+			background-color:lightskyblue;
+			height: 80px;
+			width: 100%;
+		}
+		label{
+			color: white;
+			font-size: 35px;
+			line-height: 0px;
+			padding: 0 0px;
+			font-weight: bold;
+		}
+		nav{
+			padding-left:30px;
+		}
+		.logo{
+			border-radius:10px;
+		}
+		nav div{
+			float: right;
+		}
+		.search{
+			margin-top:20px;
+		}
+		nav div input{
+			border-radius:8px;
+		}
+		#text{
+			height: 0;
+			width: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			transition: all 0s;
+			text-align: center;
+		}
+		#text:target{
+			height: 25%;
+			width: 15%;
+			top: 8.5%;
+			left: 85%;
+			background-color:orange;
+			position: absolute;
+		}
+		#top{
+			width: 100%;
+			height:900px;
+			margin-top:20px;
+			padding:20px 20px 20px 20px;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+		#top div{
+			width: 100%;
+			height: 120px;
+			padding-left:20px;
+			display:inline-flex;
+			background-color: #101845;
+		}
+		#top div img{
+			width:120px;
+			height: 120px;
+		}
+		#top div p{
+			font-family: cursive;
+			font-size:20px;
+			margin-top:15px;
+			color: whitesmoke;
+		}
+		#tittle{
+			font-family: cursive;
+			font-size:25px;
+			color: whitesmoke;
+			display: flex;
+			justify-content:center;
+		}
+		.bottom{
+			position: sticky;
+			height: 130px;
+			background-color:skyblue;
+			color:black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#icons{
+			margin-top:14px;
+		}
+		#icons i{
+			cursor: pointer;
+		}
+		#myprogressbar{
+			width: 80vw;
+		}
+	</style>
+</head>
+<body>
+		<nav class="navigation">
+			<img class="logo" src="https://img.etimg.com/thumb/msid-81525531,width-650,imgsize-622277,,resizemode-4,quality-100/music_thinkstockphotos.jpg" width="80px" height="80px">
+			<label>Music.DJ</label>
+			<div class="search">
+			<input type="search" name="search" placeholder="Search">
+			<button><i class="fas fa-search"></i></button>
+			<div>
+			<a href="#text"><img src="https://www.wallpapertip.com/wmimgs/30-308464_cool-profile-pictures-1080p.jpg" width="40px" height="40px"></a>
+			</div>
+			<div id="text">
+				<a href="#">X</a>
+				<img style="border-radius:10px;" src="https://1.bp.blogspot.com/-0ZUMPsBahSo/X0vuBttwtWI/AAAAAAAAdwM/_0Nuxi-PWUsgTsLdAmGZqILPiJf7N2bdACLcBGAsYHQ/s1600/best%2Bdp%2Bfor%2Bwhatsapp%2B%25281%2529.jpg" width="60px" height="60px"><br/>
+				<p><h1>Mohit Singh</h1></p>
+				<p>Contact No: XXXXXXXX</p>
+				<p>Email ID:abc@gmail.com</p>
+			</div>
+			</div>
+		</nav>
+		<div id="top">
+			<p id="tittle">Top 10</p>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyo2pBqLV9uTq749UGFQOIR2zSF4HX_UhieA&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlLBI7ltPEiDr4Nri5VFWyu-P1mYW1o208g&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYuuSWfGv1J74cDeG1Vk0Fx9E45YbcGZc8Zw&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs3mZlWzyBwx9-alPBUKmEwR9YNxpIe5Cn3g&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8yUwpZqFtxapmNqyzIportUowVqotgpzz3g&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT29hMwaZv2B4XPB-vUVCGtqTgTUvb5YoK0Q&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOdovypnRfNWhM0a0TvIHv1cZvNIayqsciNw&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmFHKjQQdukUc1nRgvyG6lqOpwhgILse62Kw&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBUVrnq9iqMA5WdS1U1CY61S125Jyty8w2_Q&usqp=CAU">
+				<p>Qunim</p>
+			</div>
+			<div>
+				<img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2021/12/prabhas-pooja-hegde-redefine-love-in-radhe-shyams-latest-song-soch-liya-out-now-001-324x160.jpg">
+				<p>Qunim</p>
+			</div>
+		</div>
+		<div class="bottom">
+			<input type="range" name="range" id="myprogressbar" min="0" max="100">
+			<div id="icons">
+				<i class="fas fa-3x fa-fast-backward"></i>
+				<i class="far fa-3x fa-play-circle"></i>
+				<i class="fas fa-3x fa-fast-forward"></i>
+			</div>
+		</div>
+</body>
+</html>

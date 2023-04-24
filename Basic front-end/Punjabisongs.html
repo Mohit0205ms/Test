@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="responsive.css">
+	<script src="https://kit.fontawesome.com/24843a6e11.js" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		::-webkit-scrollbar{
+			display: none;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+		body{
+			font-family:montserrat;
+			background-color: black;
+		}
+		nav{
+			background-color:lightskyblue;
+			height: 80px;
+			width: 100%;
+		}
+		label{
+			color: white;
+			font-size: 35px;
+			line-height: 0px;
+			padding: 0 0px;
+			font-weight: bold;
+		}
+		nav{
+			padding-left:30px;
+		}
+		.logo{
+			border-radius:10px;
+		}
+		nav div{
+			float: right;
+		}
+		.search{
+			margin-top:20px;
+		}
+		nav div input{
+			border-radius:8px;
+		}
+		#text{
+			height: 0;
+			width: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			transition: all 0s;
+			text-align: center;
+		}
+		#text:target{
+			height: 25%;
+			width: 15%;
+			top: 8.5%;
+			left: 85%;
+			background-color:orange;
+			position: absolute;
+		}
+		#header{
+			width:100%;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin: 0 0;
+			display: flex;
+			justify-content: space-around;
+		}
+		#hindi img{
+			width:700px;
+			height: 500px;
+		}
+		#released{
+			width:300px;
+			height:500px;
+			overflow-y:scroll;
+			overflow-x:hidden;
+			border:5px solid skyblue;
+		}
+		#released div{
+			width:300px;
+			height:110px;
+			padding:0 0 0 0;
+		}
+		#released div img{
+			width:90px;
+			height: 90px;
+		}
+		#tittle{
+			font-family:monospace;
+			font-size:25px;
+			color:whitesmoke;
+			display: flex;
+			justify-content: center;
+			position:static;
+		}
+		#lower{
+			width:100%;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin: 0 0;
+			display: flex;
+			justify-content: space-around;
+		}
+		#song{
+			display:inline-flex;
+			color: whitesmoke;
+		}
+		#hindi-tittle{
+			margin-left:10px;
+			font-size:20px;
+			font-family: cursive;
+		}
+		#song-list{
+			width:900px;
+			height:600px;
+			position: relative;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			border:5px solid skyblue;
+		}
+		#song-list div{
+			width:100%;
+			height:120px;
+			display: inline-flex;
+			color: whitesmoke;
+			background-color: #101845;
+		}
+		#song-list div img{
+			width:120px;
+			height:120px;
+			border-radius:50%;
+		}
+		#song-list div p{
+			margin-top:20px;
+		}
+		#recent{
+			width:400px;
+			height:600px;
+			position: relative;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			border:5px solid skyblue;
+		}
+		#recent div{
+			width:100%;
+			height:120px;
+			display: inline-flex;
+			color: whitesmoke;
+			background-color: #101845;
+		}
+		#recent div img{
+			width:120px;
+			height:120px;
+			border-radius:50%;
+		}
+		#recent div p{
+			margin-top:20px;
+		}
+		#recent-tittle{
+			font-family: cursive;
+			font-size:20px;
+			display: flex;
+			justify-content: center;
+			color:whitesmoke;
+			margin-left:8px;
+		}
+		#bottom{
+			position: sticky;
+			height: 130px;
+			background-color:skyblue;
+			color:black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		#icons{
+			margin-top:14px;
+		}
+		#icons i{
+			cursor: pointer;
+		}
+		#myprogressbar{
+			width: 80vw;
+		}
+		@media screen and (max-width: 900px){
+			#header img{
+				width: 600px;
+				height:500px;
+			}
+			#released{
+				width:200px;
+				height:500px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#released div{
+				width:190px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#released div img{
+				width:70px;
+				height:70px;
+			}
+			#tittle{
+				font-family:monospace;
+				font-size:20px;
+				color:whitesmoke;
+				display: flex;
+				justify-content: center;
+				margin-right:7px;
+			}
+			#song-list{
+				width:600px;
+				height:500px;
+				position: relative;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				border:5px solid skyblue;
+			}
+			#song-list div{
+				width:100%;
+				height:100px;
+				display: inline-flex;
+				color: whitesmoke;
+				background-color: #101845;
+			}
+			#song-list div img{
+				width:120px;
+				height:100px;
+				border-radius:50%;
+			}
+			#song-list div p{
+				margin-top:20px;
+			}
+			#recent{
+				width:200px;
+				height:500px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#recent div{
+				width:190px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#recent div img{
+				width:70px;
+				height:70px;
+			}
+			#recent div p{
+				margin-top:20px;
+			}
+		}
+		@media screen and (max-width: 600px){
+			#header img{
+				width:300px;
+				height:300px;
+			}
+			#released{
+				width:160px;
+				height:300px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+			#released div{
+				width:150px;
+				height:110px;
+				padding:0 0 0 0;
+			}
+			#released div img{
+				width:70px;
+				height:70px;
+			}
+			#tittle{
+				font-family:monospace;
+				font-size:20px;
+				color:whitesmoke;
+				display: flex;
+				justify-content: center;
+				margin-right:7px;
+			}
+			#song-list{
+				width:300px;
+				height:300px;
+				position: relative;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				border:5px solid skyblue;
+			}
+			#song-list div{
+				width:100%;
+				height:100px;
+				display: inline-flex;
+				color: whitesmoke;
+				background-color: #101845;
+			}
+			#song-list div img{
+				width:120px;
+				height:100px;
+				border-radius:50%;
+			}
+			#song-list div p{
+				margin-top:20px;
+			}
+			#recent{
+				width:200px;
+				height:300px;
+				overflow-y:scroll;
+				overflow-x:hidden;
+				border:5px solid skyblue;
+			}
+		}
+	</style>
+<body>
+	<nav class="navigation">
+			<img class="logo" src="https://img.etimg.com/thumb/msid-81525531,width-650,imgsize-622277,,resizemode-4,quality-100/music_thinkstockphotos.jpg" width="80px" height="80px">
+			<label>Music.DJ</label>
+			<div class="search">
+			<input type="search" name="search" placeholder="Search">
+			<button><i class="fas fa-search"></i></button>
+			<div>
+			<a href="#text"><img src="https://www.wallpapertip.com/wmimgs/30-308464_cool-profile-pictures-1080p.jpg" width="40px" height="40px"></a>
+			</div>
+			<div id="text">
+				<a href="#">X</a>
+				<img style="border-radius:10px;" src="https://1.bp.blogspot.com/-0ZUMPsBahSo/X0vuBttwtWI/AAAAAAAAdwM/_0Nuxi-PWUsgTsLdAmGZqILPiJf7N2bdACLcBGAsYHQ/s1600/best%2Bdp%2Bfor%2Bwhatsapp%2B%25281%2529.jpg" width="60px" height="60px"><br/>
+				<p><h1>Mohit Singh</h1></p>
+				<p>Contact No: XXXXXXXX</p>
+				<p>Email ID:abc@gmail.com</p>
+			</div>
+			</div>
+	</nav>
+	<div id="header">
+		<a href="#bottom"><div id="hindi">
+			<img src="https://listabsolute.com/wp-content/uploads/2020/02/List-of-Top-Punjabi-Songs-Ever-730x438.jpg">
+		</div></a>
+		<div id="released">
+			<p id="tittle">New released</p>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1JNcgO8sQJNmDsjn1CJmUSkfUhxXFm3Uj9b-tIKLde2xhdCFIYkqFYzdBDbIDuO1BKsk&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQgNCgQ2aTxXl4SfvS9Tayx5oEThcYwdjp84eQ346sgOfD5Broh7_V9luUDmzYbwOgbs&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6lyWo06RfJ4kNP_jJzE_fypFFFw5whKDzchBVeOPEGV8RYSLIuCOp_FlFMqeiH7j70GY&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThE0nFuo6BzHXVGNKc4Pr-6phMPt1w7OuiTQzlhI59OqCPxHvuPN8cdrPOwQf86dzHTQQ&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv_hm_ZOiLNAZusa3NT4IXin1dWgpP8sf4YiigDABpd89cMqfYyfM0EmJkneMBlv6Okog&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7FJlpWTjoB9pmxcB9Wd_lf9e2JXJmbpI8o0YQK77TGjSXBdGpxJW9e8J4r6Axqk5BEnE&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXx2TKADWkXoLgqLJToQGZMmTikyfArkuhfHZ7gQ0Aj9FUmC6zewFpyWfxAlMhM50xTs8&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfp66TQsr9n5nON47BOQoPms0TqHjpHlIywQ&usqp=CAU">
+				<p id="hindi-tittle">punjabi</p>
+			</div></a>
+		</div>
+	</div>
+	<div id="lower">
+		<div id="song-list">
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmYCoN3dycc4QosbuhLS9doC1525EvH2o3vg&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSBaosY7UnsR8UPD4a-ZGyHKpEjGBTTH3qbA&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDQ7ClIkHEhujKfA5BQKRHwpeO0g2UPT4Bng&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ81hrhI7lQggNBT3GtjNCY9K38mOCHJMOHUA&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaVTp6wBtsu4sw_ptYc8pMB0J2S2LGc3YA5w&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIM18fRuqR-lfadIRqtTqPd4_h3pqJUUXoqA&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAicBAa705monzKe2Fsq40TQkhrUsF0ue9rw&usqp=CAU">
+				<p>punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEMBZYxKsBukRiBdCZKZP_asd_xNHrh9JQIw&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvjY1ojvJbWohYNqeHExI4Y3gLRMrK4PTAvA&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtfKAhK3xQFFBzhR0-t-sMn3dV-C-UXtU-yw&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUcPBlau8H-tapAzBbKYgfXZxejnXCFYM4nw&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGx3BPBKCWPCoP-xxpdUWSPKZIlhHLxtkjtA&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdHg91Yyre220ZXGB7ocuDvdsLjdC3GqZESA&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLcOI8FBhNg0PmHoHMgyvpXJHgm_N6Vbla1w&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-fzTkKxyYYT7NM9zERqU09OLuGntIs1w2mQ&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+		</div>
+		<div id="recent">
+			<p id="recent-tittle">Recent Played</p>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-fzTkKxyYYT7NM9zERqU09OLuGntIs1w2mQ&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLcOI8FBhNg0PmHoHMgyvpXJHgm_N6Vbla1w&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMa1wjDGdjXWBI8ftrTI02DjhoUTEfriexUw&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz8-_FSAgkYbM3N_cdFjqDv6-JcWyZLamzDQ&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div id="song">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9rIf8r0vbVvKO63BoVo7VxPr60_-MW39HYg&usqp=CAU">
+				<p id="hindi-tittle">Punjabi</p>
+			</div></a>
+			<a href="#bottom"><div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrN2srPsDOTvtytxSvqk2ZpIZej6b4Q63Flw&usqp=CAU">
+				<p>Punjabi</p>
+			</div></a>
+		</div>
+	</div>
+	<div id="bottom">
+			<input type="range" name="range" id="myprogressbar" min="0" max="100">
+			<div id="icons">
+				<i class="fas fa-3x fa-fast-backward"></i>
+				<i class="far fa-3x fa-play-circle"></i>
+				<i class="fas fa-3x fa-fast-forward"></i>
+			</div>
+		</div>
+</body>
+</html>
